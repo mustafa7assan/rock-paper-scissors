@@ -1,3 +1,33 @@
+const buttons = document.querySelectorAll("button");
+const result = document.querySelector(".result");
+const pScore = document.querySelector(".player-score");
+const cScore = document.querySelector(".computer-score");
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const playSelection = btn.id;
+    const computerSelection = getComputerChoice();
+    result.textContent = playRound(playSelection, computerSelection);
+    pScore.textContent = playerScore;
+    cScore.textContent = computerScore;
+    checkWinner();
+  });
+});
+
+function checkWinner() {
+  if (playerScore >= 5) {
+    result.textContent = "Player is win";
+    rest();
+  } else if (computerScore >= 5) {
+    result.textContent = "Computer is win";
+    rest();
+  }
+}
+function rest() {
+  playerScore = 0;
+  computerScore = 0;
+  pScore.textContent = 0;
+  cScore.textContent = 0;
+}
 function getComputerChoice() {
   // generate a random number between 1 to 3 inclusive
   const choice = Math.floor(Math.random() * 3) + 1;
@@ -45,26 +75,5 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  // play 5 round
-  for (let i = 1; i <= 5; i++) {
-    // get computer choice
-    const computerSelection = getComputerChoice();
-    // get player choice
-    let playerSelection = prompt("Enter your choice(rock, paper, scissors)");
-    while (!"(rock, paper, scissors)".includes(playerSelection.toLowerCase())) {
-      alert("Choose valid choice");
-      playerSelection = prompt("Enter your choice(rock, paper, scissors)");
-    }
-    console.log(playRound(playerSelection, computerSelection));
-  }
-  // determine the winner
-  if (playerScore > computerScore) {
-    alert("You win");
-  } else {
-    alert("You lose");
-  }
-}
 let playerScore = 0,
   computerScore = 0;
-game();
