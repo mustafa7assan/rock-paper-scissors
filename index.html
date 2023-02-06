@@ -4,18 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <div class="score">
-      <div class="player-score">0</div>
-      <div class="computer-score">0</div>
+    <div class="container">
+      <div class="score-container">
+        <div>
+          <div class="player">Player</div>
+          <div class="player-score score">0</div>
+        </div>
+        <div>
+          <div class="player">Computer</div>
+          <div class="computer-score score">0</div>
+        </div>
+      </div>
+      <div class="choose">Choose an option</div>
+      <div class="hands">
+        <div class="img">
+          <img src="" class="player-hand" />
+        </div>
+        <div class="result"></div>
+        <div class="img">
+          <img src="" class="computer-hand" />
+        </div>
+      </div>
+      <div class="btns">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+      </div>
     </div>
-    <div class="result"></div>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <div class="modal">
+      <p>Computer Win</p>
+      <button class="rest">New Game</button>
+    </div>
     <script src="./script.js" type="module"></script>
   </body>
 </html>
